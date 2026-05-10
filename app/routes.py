@@ -9,6 +9,10 @@ bp = Blueprint("api", __name__)
 def health():
     return jsonify(status="ok")
 
+@bp.get("/new_route")
+def new_route():
+    return jsonify(status="added")
+
 
 @bp.get("/api/tasks")
 def list_tasks():
