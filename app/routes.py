@@ -13,7 +13,6 @@ def health():
 def new_route():
     return jsonify(status="added")
 
-
 @bp.get("/api/tasks")
 def list_tasks():
     tasks = Task.query.order_by(Task.id.asc()).all()
