@@ -4,14 +4,6 @@ from app.models import Task, db
 
 bp = Blueprint("api", __name__)
 
-@bp.get("/api/tasks/one")
-def get_one_task():
-    task = Task.query.first()
-
-    if task is None:
-        return jsonify(error="not found"), 404
-
-    return jsonify(task.as_dict())
 
 @bp.get("/health")
 def health():

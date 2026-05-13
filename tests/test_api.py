@@ -4,17 +4,7 @@ def test_health(client):
     assert r.get_json() == {"status": "ok"}
 
 
-def test_get_one_task(client):
-    r = client.post("/api/tasks", json={"title": "Task 1"})
-    assert r.status_code == 201
 
-    r = client.get("/api/tasks/one")
-    assert r.status_code == 200
-
-    body = r.get_json()
-    assert body["title"] == "Task 1"
-    assert body["done"] is False
-    assert "id" in body
 
 def test_tasks_crud(client):
     r = client.get("/api/tasks")
